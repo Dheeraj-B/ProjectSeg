@@ -52,11 +52,8 @@ def get_unet():
     conv5 = Conv2D(512, (3, 3), activation='relu', padding='same')(pool4)
     conv5 = Conv2D(512, (3, 3), activation='relu', padding='same')(conv5)
 
-    up6 = concatenate([Conv2DTranspose(256, (2, 2), strides=(2, 2), padding='same')(conv5), conv4], axis=3)
-    conv6 = Conv2D(256, (3, 3), activation='relu', padding='same')(up6)
-    conv6 = Conv2D(256, (3, 3), activation='relu', padding='same')(conv6)
 
-    flattened_layer = Flatten()(conv6)
+    flattened_layer = Flatten()(conv5)
     fc_layer1 = Dense(500,activation='relu')(flattened_layer)
     fc_layer2 = Dense(100,activation='relu')(fc_layer1)
     out_layer = Dense(1,activation='sigmoid')(fc_layer2)
