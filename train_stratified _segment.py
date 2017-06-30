@@ -1,9 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Mon Jun 26 17:48:27 2017
-
-@author: IBM
-"""
 from __future__ import print_function
 from keras.models import Sequential
 from keras.layers import Dense
