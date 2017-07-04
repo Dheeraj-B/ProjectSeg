@@ -1,4 +1,9 @@
 # -*- coding: utf-8 -*-
+"""
+Created on Mon Jun 26 17:48:27 2017
+
+@author: IBM
+"""
 from __future__ import print_function
 from keras.models import Sequential
 from keras.layers import Dense
@@ -36,7 +41,6 @@ imgs_train = preprocess(imgs_train)
 imgs_mask_train = preprocess(imgs_mask_train)
 imgs_mask_train = imgs_mask_train.astype('float32')
 imgs_mask_train/= 255.0     # done becaosue final layer is sigmoid
-existence_mask =  get_object_existence(imgs_mask_train)
 
 imgs_train = imgs_train.astype('float32')
 mean = np.mean(imgs_train)  # mean for data centering
@@ -45,7 +49,10 @@ std = np.std(imgs_train)  # std for data normalization
 imgs_train -= mean
 imgs_train /= std
 
-y_train = existence_mask.astype(np.uint8) 
+
+print(imgs_train.shape)
+print(imgs_mask_train.shape)
+exit
 
 print('-'*30)
 print('Creating and compiling model...')
